@@ -1,0 +1,51 @@
+{
+  "description": "Minimal parity sample — schema readiness only (Loop 6). Not a parity PASS.",
+  "records": [
+    {
+      "sample_type": "synthetic_readiness",
+      "symbol": "DEMO",
+      "chart_timeframe": "M5",
+      "source_bar_index": 100,
+      "source_bar_open_time_chart_local": "2026-05-10T09:05:00.000",
+      "open": 1.0,
+      "high": 1.1,
+      "low": 0.95,
+      "close": 1.05,
+      "bar_closed": true,
+      "is_realtime": false,
+      "evaluation_offset": 1,
+      "pine_event_summary": null,
+      "pine_state_summary": null,
+      "csharp_condition_id": "CondBuyEventM5",
+      "csharp_evaluated": false,
+      "csharp_fired": false,
+      "csharp_reason_code": "SKIP_SYNTHETIC_READINESS",
+      "match_status": "not_comparable",
+      "mismatch_reason": "No Pine event/state baseline row exported for this bar; Loop 6 delivers schema + readiness only.",
+      "known_difference_ref": "KD-PBG-001"
+    },
+    {
+      "sample_type": "synthetic_readiness",
+      "symbol": "DEMO",
+      "chart_timeframe": "M5",
+      "source_bar_index": 101,
+      "source_bar_open_time_chart_local": "2026-05-10T09:10:00.000",
+      "open": 1.05,
+      "high": 1.12,
+      "low": 1.0,
+      "close": 1.08,
+      "bar_closed": false,
+      "is_realtime": true,
+      "evaluation_offset": 0,
+      "pine_event_summary": null,
+      "pine_state_summary": null,
+      "csharp_condition_id": "CanBuyTouchM5",
+      "csharp_evaluated": false,
+      "csharp_fired": false,
+      "csharp_reason_code": "SKIP_SYNTHETIC_READINESS",
+      "match_status": "not_comparable",
+      "mismatch_reason": "Synthetic row; touch/zone deps not exercised in sample.",
+      "known_difference_ref": "KD-RNV-002"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+# Build outputs
+**/bin/
+**/obj/
+
+# Visual Studio / Rider
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet
+*.nupkg
+packages/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Backtest / export data (must not be committed)
+*.xlsx
+*.xlsx.*
+*.zip
+log.txt
+*.csv.bak
+
+# Secrets / local config
+.env
+.env.*
+*.secrets.json
+appsettings.Development.json
+
+# cTrader local artifacts
+*.algo.bak

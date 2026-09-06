@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>KlEntryLotIndicator</RootNamespace>
+    <AssemblyName>KlEntryLotIndicator</AssemblyName>
+    <Description>KL vao lenh — Bid chart full spread lot calculator (port from Pine).</Description>
+    <IncludeSource>true</IncludeSource>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="cTrader.Automate" Version="1.0.17" />
+  </ItemGroup>
+
+  <!-- Luôn deploy KlEntryLotIndicator.algo — không phụ thuộc tên folder cha -->
+  <Target Name="SetKlAlgoOutputNames" BeforeTargets="_ExtractMetadata">
+    <PropertyGroup>
+      <_AlgoRootDirectoryName>KlEntryLotIndicator</_AlgoRootDirectoryName>
+      <_AlgoFileName>KlEntryLotIndicator.algo</_AlgoFileName>
+      <_AlgoFilePath>$(OutDir)$(_AlgoFileName)</_AlgoFilePath>
+      <_AlgoMetadataFileName>$(_AlgoFileName).metadata</_AlgoMetadataFileName>
+      <_AlgoMetadataFilePath>$(OutDir)$(_AlgoMetadataFileName)</_AlgoMetadataFilePath>
+    </PropertyGroup>
+  </Target>
+
+  <!-- Sync source + bundle vào cAlgo để Automate mở/build được -->
+  <Target Name="DeployKlEntrySourcesToCAlgo" AfterTargets="_CopyToSources">
+    <PropertyGroup>
+      <_CAlgoIndicatorsRoot>$(USERPROFILE)\Documents\cAlgo\Sources\Indicators</_CAlgoIndicatorsRoot>
+      <_CAlgoBundleDir>$(_CAlgoIndicatorsRoot)\KlEntryLotIndicator</_CAlgoBundleDir>
+      <_CAlgoProjectDir>$(_CAlgoBundleDir)\KlEntryLotIndicator</_CAlgoProjectDir>
+    </PropertyGroup>
+    <MakeDir Directories="$(_CAlgoProjectDir)" />
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\KlVaoLenhBidSpreadIndicator.cs;$(MSBuildProjectDirectory)\KlEntryLotCalculator.cs;$(MSBuildProjectDirectory)\KlDashboardGridBuilder.cs;$(MSBuildProjectDirectory)\KlEntryLotIndicator.csproj"
+          DestinationFolder="$(_CAlgoProjectDir)"
+          SkipUnchangedFiles="false"
+          OverwriteReadOnlyFiles="true" />
+    <Copy SourceFiles="$(_AlgoFilePath);$(_AlgoMetadataFilePath)"
+          DestinationFolder="$(_CAlgoBundleDir)"
+          OverwriteReadOnlyFiles="true" />
+    <Copy SourceFiles="$(_AlgoFilePath);$(_AlgoMetadataFilePath)"
+          DestinationFolder="$(_CAlgoIndicatorsRoot)"
+          OverwriteReadOnlyFiles="true" />
+    <Message Importance="High"
+             Text="KlEntryLotIndicator deployed: $(_CAlgoBundleDir) + $(_CAlgoIndicatorsRoot)\$(_AlgoFileName)" />
+  </Target>
+
+</Project>

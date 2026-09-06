@@ -1,0 +1,107 @@
+{
+  "bundle": "Loop6_QA_handoff",
+  "phase": "Phase 2 Loop 6",
+  "project": "DEMO_TRADE_PROJECT",
+  "pod": "POD_MAIN",
+  "items": [
+    {
+      "path": "docs/mapping/Loop6_Mapping_Master.md",
+      "purpose": "Single index for Loop1–6 mapping docs and status vocabulary",
+      "source_dependency": "Loop2/3/4/5 mapping markdown; Pine read-only refs",
+      "acceptance_criteria": "All listed docs exist; table non-empty",
+      "status": "closed_by_artifact",
+      "owner": "Builder",
+      "blocker_or_carry_over_ref": null
+    },
+    {
+      "path": "docs/mapping/Loop6_Alert_Inventory.md",
+      "purpose": "12 alertcondition inventory with P1 disposition wording",
+      "source_dependency": "Loop4_AlertEngine_Mapping.md; AlertEngine registry",
+      "acceptance_criteria": "12 rows; no vague later/defer",
+      "status": "closed_by_artifact",
+      "owner": "Builder",
+      "blocker_or_carry_over_ref": "KD-RNV-002 true-fire deps"
+    },
+    {
+      "path": "docs/mapping/Loop6_MTF_BarTiming_Contract.md",
+      "purpose": "MTF/bar timing for all 12 conditions",
+      "source_dependency": "AlertTimingClass; M15EdgeHostSignal; BarRuntimeFlags",
+      "acceptance_criteria": "12 rows covering src TF, offset, realtime, M15 edge",
+      "status": "closed_by_artifact",
+      "owner": "Builder",
+      "blocker_or_carry_over_ref": "KD-RNV-003 request.security"
+    },
+    {
+      "path": "docs/mapping/Loop6_DuplicateKey_Spec.md",
+      "purpose": "Canonical DuplicateKey + session + Pine triggered mapping_gap",
+      "source_dependency": "DuplicateKey.cs; AlertDuplicateMemoryStore",
+      "acceptance_criteria": "Canonical format documented; lifecycle explicit",
+      "status": "closed_by_artifact",
+      "owner": "Builder",
+      "blocker_or_carry_over_ref": null
+    },
+    {
+      "path": "docs/mapping/Loop6_AlertLog_Schema.md",
+      "purpose": "AlertLogEntry field map + QA optional (doc-only)",
+      "source_dependency": "AlertLogEntry.cs; AlertEngine.ToLogEntry",
+      "acceptance_criteria": "No contradiction with code; optional fields labeled",
+      "status": "closed_by_artifact",
+      "owner": "Builder",
+      "blocker_or_carry_over_ref": null
+    },
+    {
+      "path": "docs/parity/Loop6_Parity_Report_Schema.md",
+      "purpose": "Baseline parity row schema (OHLC + bar-state)",
+      "source_dependency": "DATA CHART / TV policy; Engineering_gui_COO_v007 refs",
+      "acceptance_criteria": "Rules 1–3 enforce no fake match",
+      "status": "closed_by_artifact",
+      "owner": "Builder",
+      "blocker_or_carry_over_ref": "KD-PBG-001"
+    },
+    {
+      "path": "docs/parity/samples/parity_sample_minimal.json",
+      "purpose": "Parseable sample; synthetic_readiness only",
+      "source_dependency": "Loop6_Parity_Report_Schema.md",
+      "acceptance_criteria": "JSON valid; match_status not_comparable only",
+      "status": "closed_by_artifact",
+      "owner": "Builder",
+      "blocker_or_carry_over_ref": null
+    },
+    {
+      "path": "docs/known_differences/Loop6_Known_Differences_Schema.md",
+      "purpose": "3-group taxonomy + stable IDs for known_difference_ref",
+      "source_dependency": "Loop4 mapping_gap list; runtime locks",
+      "acceptance_criteria": "Groups parity_baseline_gap, production_observation, runtime_not_verified",
+      "status": "closed_by_artifact",
+      "owner": "Builder",
+      "blocker_or_carry_over_ref": null
+    },
+    {
+      "path": "docs/qa/Loop6_QA_Handoff_Checklist.md",
+      "purpose": "Product/QA sign-off steps",
+      "source_dependency": "manifest required_presence",
+      "acceptance_criteria": "Checklist references SMA manifest fields",
+      "status": "closed_by_artifact",
+      "owner": "QA",
+      "blocker_or_carry_over_ref": null
+    },
+    {
+      "path": "docs/smoke/Loop6_Smoke_Runbook.md",
+      "purpose": "Build, JSON parse, grep, artifact verify",
+      "source_dependency": "dotnet SDK optional",
+      "acceptance_criteria": "Documents substitute verify if no SDK",
+      "status": "closed_by_artifact",
+      "owner": "Builder",
+      "blocker_or_carry_over_ref": "KD-RNV-001"
+    },
+    {
+      "path": "build/loop6_manifest_plan.json",
+      "purpose": "Draft manifest field checklist pre-release",
+      "source_dependency": "code_cTrader_LOOP6_REV001_manifest.json",
+      "acceptance_criteria": "Fields align with release manifest",
+      "status": "closed_by_artifact",
+      "owner": "Builder",
+      "blocker_or_carry_over_ref": null
+    }
+  ]
+}

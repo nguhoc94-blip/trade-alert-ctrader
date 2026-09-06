@@ -1,0 +1,39 @@
+{
+  "draft": "loop6_manifest_plan",
+  "note": "Field checklist for packaging; release file is code_cTrader_LOOP6_REV001_manifest.json beside zip.",
+  "required_top_level_fields": [
+    "artifact",
+    "revision",
+    "phase",
+    "form_version",
+    "checksum_sha256",
+    "zip_size_bytes",
+    "entry_count",
+    "source_root_workspace",
+    "sandbox_review_paths",
+    "local_builder_provenance",
+    "required_presence",
+    "negative_scope_grep",
+    "build_test_summary",
+    "loop6_docs_bundle_ref"
+  ],
+  "required_presence_preview": [
+    "docs/mapping/Loop6_Mapping_Master.md",
+    "docs/mapping/Loop6_Alert_Inventory.md",
+    "docs/mapping/Loop6_MTF_BarTiming_Contract.md",
+    "docs/mapping/Loop6_DuplicateKey_Spec.md",
+    "docs/mapping/Loop6_AlertLog_Schema.md",
+    "docs/parity/Loop6_Parity_Report_Schema.md",
+    "docs/parity/samples/parity_sample_minimal.json",
+    "docs/known_differences/Loop6_Known_Differences_Schema.md",
+    "docs/qa/Loop6_QA_Handoff_Checklist.md",
+    "docs/qa/loop6_bundle_index.json",
+    "docs/smoke/Loop6_Smoke_Runbook.md",
+    "build/loop6_manifest_plan.json"
+  ],
+  "negative_scope_grep_preview": {
+    "scopes": ["src", "docs"],
+    "patterns": "cBot|backtest|auto trade|order execution|PlaceOrder|risk management",
+    "expected_matches": 0
+  }
+}

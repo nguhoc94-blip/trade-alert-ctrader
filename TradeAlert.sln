@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3174B2CC-D6F0-4D4B-9BC4-7AC96B835212}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeAlert.Core", "src\TradeAlert.Core\TradeAlert.Core.csproj", "{9715147B-9B3E-4D92-B1B8-FAE1D5A305C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeAlert.Indicator", "src\TradeAlert.Indicator\TradeAlert.Indicator.csproj", "{B2F8D4C1-1234-4A5B-9C8D-1E2F3A4B5C6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeAlert.Robot", "src\TradeAlert.Robot\TradeAlert.Robot.csproj", "{C3A9E5D2-5678-4B0C-9D1E-2F3A4B5C6D7E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9E3036F3-4173-4E5E-921F-4ED97B9004F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeAlert.Core.Tests", "tests\TradeAlert.Core.Tests\TradeAlert.Core.Tests.csproj", "{9A1E254D-7A87-4DED-BB96-731110369B9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlEntryLotIndicator", "KlEntryLotIndicator\KlEntryLotIndicator\KlEntryLotIndicator.csproj", "{D4E5F6A7-B8C9-4D0E-9F1A-2B3C4D5E6F70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlEntryLot.Tests", "tests\KlEntryLot.Tests\KlEntryLot.Tests.csproj", "{E5F6A7B8-C9D0-4E1F-A2B3-C4D5E6F70891}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeAlert.Engines", "src\TradeAlert.Engines\TradeAlert.Engines.csproj", "{19988EC0-DD26-4BCC-91F0-F729E92F02F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeAlert.BacktestRobot", "src\TradeAlert.BacktestRobot\TradeAlert.BacktestRobot.csproj", "{8F692B0E-84F9-48D5-A251-86D4A80C0C9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeAlert.BacktestRobot.Tests", "tests\TradeAlert.BacktestRobot.Tests\TradeAlert.BacktestRobot.Tests.csproj", "{9ACD4DAF-7DAC-483D-A90F-C1203E54AE7D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9715147B-9B3E-4D92-B1B8-FAE1D5A305C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9715147B-9B3E-4D92-B1B8-FAE1D5A305C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9715147B-9B3E-4D92-B1B8-FAE1D5A305C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9715147B-9B3E-4D92-B1B8-FAE1D5A305C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2F8D4C1-1234-4A5B-9C8D-1E2F3A4B5C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2F8D4C1-1234-4A5B-9C8D-1E2F3A4B5C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2F8D4C1-1234-4A5B-9C8D-1E2F3A4B5C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2F8D4C1-1234-4A5B-9C8D-1E2F3A4B5C6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3A9E5D2-5678-4B0C-9D1E-2F3A4B5C6D7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3A9E5D2-5678-4B0C-9D1E-2F3A4B5C6D7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3A9E5D2-5678-4B0C-9D1E-2F3A4B5C6D7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3A9E5D2-5678-4B0C-9D1E-2F3A4B5C6D7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A1E254D-7A87-4DED-BB96-731110369B9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A1E254D-7A87-4DED-BB96-731110369B9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A1E254D-7A87-4DED-BB96-731110369B9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A1E254D-7A87-4DED-BB96-731110369B9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4E5F6A7-B8C9-4D0E-9F1A-2B3C4D5E6F70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4E5F6A7-B8C9-4D0E-9F1A-2B3C4D5E6F70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4E5F6A7-B8C9-4D0E-9F1A-2B3C4D5E6F70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4E5F6A7-B8C9-4D0E-9F1A-2B3C4D5E6F70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5F6A7B8-C9D0-4E1F-A2B3-C4D5E6F70891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F6A7B8-C9D0-4E1F-A2B3-C4D5E6F70891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5F6A7B8-C9D0-4E1F-A2B3-C4D5E6F70891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5F6A7B8-C9D0-4E1F-A2B3-C4D5E6F70891}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19988EC0-DD26-4BCC-91F0-F729E92F02F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19988EC0-DD26-4BCC-91F0-F729E92F02F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19988EC0-DD26-4BCC-91F0-F729E92F02F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19988EC0-DD26-4BCC-91F0-F729E92F02F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F692B0E-84F9-48D5-A251-86D4A80C0C9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F692B0E-84F9-48D5-A251-86D4A80C0C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F692B0E-84F9-48D5-A251-86D4A80C0C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F692B0E-84F9-48D5-A251-86D4A80C0C9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ACD4DAF-7DAC-483D-A90F-C1203E54AE7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ACD4DAF-7DAC-483D-A90F-C1203E54AE7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ACD4DAF-7DAC-483D-A90F-C1203E54AE7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ACD4DAF-7DAC-483D-A90F-C1203E54AE7D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9715147B-9B3E-4D92-B1B8-FAE1D5A305C9} = {3174B2CC-D6F0-4D4B-9BC4-7AC96B835212}
+		{B2F8D4C1-1234-4A5B-9C8D-1E2F3A4B5C6D} = {3174B2CC-D6F0-4D4B-9BC4-7AC96B835212}
+		{C3A9E5D2-5678-4B0C-9D1E-2F3A4B5C6D7E} = {3174B2CC-D6F0-4D4B-9BC4-7AC96B835212}
+		{9A1E254D-7A87-4DED-BB96-731110369B9D} = {9E3036F3-4173-4E5E-921F-4ED97B9004F3}
+		{D4E5F6A7-B8C9-4D0E-9F1A-2B3C4D5E6F70} = {3174B2CC-D6F0-4D4B-9BC4-7AC96B835212}
+		{E5F6A7B8-C9D0-4E1F-A2B3-C4D5E6F70891} = {9E3036F3-4173-4E5E-921F-4ED97B9004F3}
+		{19988EC0-DD26-4BCC-91F0-F729E92F02F6} = {3174B2CC-D6F0-4D4B-9BC4-7AC96B835212}
+		{8F692B0E-84F9-48D5-A251-86D4A80C0C9D} = {3174B2CC-D6F0-4D4B-9BC4-7AC96B835212}
+		{9ACD4DAF-7DAC-483D-A90F-C1203E54AE7D} = {9E3036F3-4173-4E5E-921F-4ED97B9004F3}
+	EndGlobalSection
+EndGlobal

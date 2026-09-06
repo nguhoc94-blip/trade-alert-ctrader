@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>TradeAlert.BacktestRobot</RootNamespace>
+    <AssemblyName>TradeAlert.BacktestRobot</AssemblyName>
+    <Description>Loop 6 — single-symbol backtest trading cBot (limit entry + SL/TP from swing/keylevel/OB; KlEntryLot FTMO sizing). Separate algo from the alert scanner.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TradeAlert.Engines\TradeAlert.Engines.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="cTrader.Automate" Version="1.0.17" />
+  </ItemGroup>
+
+  <!-- Force a unique .algo name (default would be "src.algo" and clash with the scanner) -->
+  <Target Name="SetBacktestAlgoOutputNames" BeforeTargets="_ExtractMetadata">
+    <PropertyGroup>
+      <_AlgoRootDirectoryName>TradeAlert.BacktestRobot</_AlgoRootDirectoryName>
+      <_AlgoFileName>TradeAlert.BacktestRobot.algo</_AlgoFileName>
+      <_AlgoFilePath>$(OutDir)$(_AlgoFileName)</_AlgoFilePath>
+      <_AlgoMetadataFileName>$(_AlgoFileName).metadata</_AlgoMetadataFileName>
+      <_AlgoMetadataFilePath>$(OutDir)$(_AlgoMetadataFileName)</_AlgoMetadataFilePath>
+    </PropertyGroup>
+  </Target>
+
+  <!-- Deploy the .algo into cTrader's Robots folder so Automate can open/run it -->
+  <Target Name="DeployRobotToCAlgo" AfterTargets="_CopyToSources">
+    <PropertyGroup>
+      <_CAlgoRobotsRoot>$(USERPROFILE)\Documents\cAlgo\Sources\Robots</_CAlgoRobotsRoot>
+      <_AlgoFileName>TradeAlert.BacktestRobot.algo</_AlgoFileName>
+      <_AlgoFilePath>$(OutDir)$(_AlgoFileName)</_AlgoFilePath>
+      <_AlgoMetadataFilePath>$(OutDir)$(_AlgoFileName).metadata</_AlgoMetadataFilePath>
+    </PropertyGroup>
+    <MakeDir Directories="$(_CAlgoRobotsRoot)" />
+    <Copy SourceFiles="$(_AlgoFilePath);$(_AlgoMetadataFilePath)"
+          DestinationFolder="$(_CAlgoRobotsRoot)"
+          SkipUnchangedFiles="false"
+          OverwriteReadOnlyFiles="true"
+          Condition="Exists('$(_AlgoFilePath)')" />
+    <Message Importance="High"
+             Text="TradeAlert.BacktestRobot deployed: $(_CAlgoRobotsRoot)\$(_AlgoFileName)" />
+  </Target>
+
+</Project>

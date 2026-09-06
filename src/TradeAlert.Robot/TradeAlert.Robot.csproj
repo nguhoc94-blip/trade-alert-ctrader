@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>TradeAlert.Robot</RootNamespace>
+    <AssemblyName>TradeAlert.Robot</AssemblyName>
+    <Description>Loop 6 — minimal cBot signal logger (same Core/Indicator shell); no order execution.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TradeAlert.Engines\TradeAlert.Engines.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="cTrader.Automate" Version="1.0.17" />
+  </ItemGroup>
+
+  <!-- Exclude legacy prototype robot — only Loop6MultiSymbolEmailScanner is the active cBot -->
+  <ItemGroup>
+    <Compile Remove="TradeAlertSignalRobot.cs" />
+  </ItemGroup>
+
+  <Target Name="DeployScannerToCAlgo" AfterTargets="_CopyToSources">
+    <PropertyGroup>
+      <_CAlgoRobotsRoot>$(USERPROFILE)\Documents\cAlgo\Sources\Robots</_CAlgoRobotsRoot>
+      <_AlgoFileName>src.algo</_AlgoFileName>
+      <_AlgoFilePath>$(OutDir)$(_AlgoFileName)</_AlgoFilePath>
+      <_AlgoMetadataFilePath>$(OutDir)$(_AlgoFileName).metadata</_AlgoMetadataFilePath>
+    </PropertyGroup>
+    <MakeDir Directories="$(_CAlgoRobotsRoot)" />
+    <Copy SourceFiles="$(_AlgoFilePath);$(_AlgoMetadataFilePath)"
+          DestinationFolder="$(_CAlgoRobotsRoot)"
+          SkipUnchangedFiles="false"
+          OverwriteReadOnlyFiles="true"
+          Condition="Exists('$(_AlgoFilePath)')" />
+    <Message Importance="High"
+             Text="Loop6MultiSymbolEmailScanner deployed: $(_CAlgoRobotsRoot)\$(_AlgoFileName)" />
+  </Target>
+
+</Project>

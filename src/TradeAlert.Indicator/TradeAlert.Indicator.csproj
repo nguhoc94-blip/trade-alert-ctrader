@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>TradeAlert.Indicator</RootNamespace>
+    <AssemblyName>TradeAlert.Indicator</AssemblyName>
+    <Description>Loop 6 — Trade Alert indicator host + Bars→Core; references cTrader.Automate (cAlgo.API).</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TradeAlert.Engines\TradeAlert.Engines.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="cTrader.Automate" Version="1.0.17" />
+  </ItemGroup>
+
+  <Target Name="DeployIndicatorToCAlgo" AfterTargets="_CopyToSources">
+    <PropertyGroup>
+      <_CAlgoIndicatorsRoot>$(USERPROFILE)\Documents\cAlgo\Sources\Indicators</_CAlgoIndicatorsRoot>
+      <_AlgoFileName>src.algo</_AlgoFileName>
+      <_AlgoFilePath>$(OutDir)$(_AlgoFileName)</_AlgoFilePath>
+      <_AlgoMetadataFilePath>$(OutDir)$(_AlgoFileName).metadata</_AlgoMetadataFilePath>
+    </PropertyGroup>
+    <MakeDir Directories="$(_CAlgoIndicatorsRoot)" />
+    <Copy SourceFiles="$(_AlgoFilePath);$(_AlgoMetadataFilePath)"
+          DestinationFolder="$(_CAlgoIndicatorsRoot)"
+          SkipUnchangedFiles="false"
+          OverwriteReadOnlyFiles="true"
+          Condition="Exists('$(_AlgoFilePath)')" />
+    <Message Importance="High"
+             Text="TradeAlertLoop6Host deployed: $(_CAlgoIndicatorsRoot)\$(_AlgoFileName)" />
+  </Target>
+
+</Project>

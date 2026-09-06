@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>TradeAlert.Indicator</RootNamespace>
+    <AssemblyName>TradeAlert.Engines</AssemblyName>
+    <Description>Shared signal engine — no [Indicator]/[Robot] classes. Safe to reference from both Indicator and Robot projects.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TradeAlert.Core\TradeAlert.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- ExcludeAssets=build: get cAlgo.API types for compilation but skip the .targets
+         that require an [Indicator]/[Robot] class and produce .algo files. -->
+    <PackageReference Include="cTrader.Automate" Version="1.0.17" ExcludeAssets="build" />
+  </ItemGroup>
+
+</Project>
